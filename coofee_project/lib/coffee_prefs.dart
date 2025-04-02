@@ -5,6 +5,11 @@ class CoffeePrefs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Column(
+      children: [
+        Row(children: [Text('Strength: '), Text('3')]),
+        Row(),
+      ],
+    );
   }
 }
