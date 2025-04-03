@@ -2,7 +2,7 @@ import 'package:coofee_project/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(home: Sandbox()));
+  runApp(MaterialApp(home: Home()));
 }
 
 // class Sandbox extends StatelessWidget {
