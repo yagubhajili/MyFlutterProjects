@@ -1,12 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/pages/first_page.dart';
+import 'package:todo_app/pages/home_page.dart';
+import 'package:todo_app/pages/second_page.dart';
+import 'package:todo_app/pages/settings_page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: FirstPage(),
+      routes: {
+        '/firspage': (context) => FirstPage(),
+        '/secondpage': (context) => SecondPage(),
+        '/homepage': (context) => HomePage(),
+        '/settingspage': (context) => SettingsPage(),
+      },
+    );
+  }
   // // This widget is the root of your application.
   // @override
   // Widget build(BuildContext context) {
@@ -51,7 +68,7 @@ class MyApp extends StatelessWidget {
   //     ),
   //   );
   // }
-  List names = ['yaqub', 'elcan', 'iman', 'malik', 'oqtay'];
+  // List names = ['yaqub', 'elcan', 'iman', 'malik', 'oqtay'];
 
   // @override
   // Widget build(BuildContext context) {
@@ -103,27 +120,27 @@ class MyApp extends StatelessWidget {
   //     ),
   //   );
   // }
-  void userTapped() {
-    print('salam');
-  }
+  // void userTapped() {
+  //   print('salam');
+  // }
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: GestureDetector(
-            onTap: userTapped,
-            child: Container(
-              height: 200,
-              width: 200,
-              color: Colors.amber,
-              child: Center(child: Text('data')),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+  // @override
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //     debugShowCheckedModeBanner: false,
+  //     home: Scaffold(
+  //       body: Center(
+  //         child: GestureDetector(
+  //           onTap: userTapped,
+  //           child: Container(
+  //             height: 200,
+  //             width: 200,
+  //             color: Colors.amber,
+  //             child: Center(child: Text('data')),
+  //           ),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 }
