@@ -84,21 +84,44 @@ class MyApp extends StatelessWidget {
   //   );
   // }
 
+  // @override
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //     debugShowCheckedModeBanner: false,
+  //     home: Scaffold(
+  //       body: Stack(
+  //         alignment: Alignment.center,
+  //         children: [
+  //           // big container
+  //           Container(height: 300, width: 300, color: Colors.blue),
+  //           // mid container
+  //           Container(height: 200, width: 200, color: Colors.red),
+  //           // small container
+  //           Container(height: 100, width: 100, color: Colors.green),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
+  void userTapped() {
+    print('salam');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Stack(
-          alignment: Alignment.center,
-          children: [
-            // big container
-            Container(height: 300, width: 300, color: Colors.blue),
-            // mid container
-            Container(height: 200, width: 200, color: Colors.red),
-            // small container
-            Container(height: 100, width: 100, color: Colors.green),
-          ],
+        body: Center(
+          child: GestureDetector(
+            onTap: userTapped,
+            child: Container(
+              height: 200,
+              width: 200,
+              color: Colors.amber,
+              child: Center(child: Text('data')),
+            ),
+          ),
         ),
       ),
     );
