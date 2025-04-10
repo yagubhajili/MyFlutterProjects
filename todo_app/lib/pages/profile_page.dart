@@ -5,6 +5,9 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text('profile page')));
+    return Scaffold(
+      backgroundColor: Colors.red,
+      body: Center(child: Text('profile page')),
+    );
   }
 }
