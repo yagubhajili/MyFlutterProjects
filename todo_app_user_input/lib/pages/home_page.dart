@@ -17,6 +17,12 @@ class _HomePageState extends State<HomePage> {
     ['study', false],
   ];
 
+  void deleteTask(int index) {
+    setState(() {
+      toDOList.removeAt(index);
+    });
+  }
+
   void checkBoxTick(bool? value, int index) {
     setState(() {
       toDOList[index][1] = !toDOList[index][1];
@@ -64,6 +70,7 @@ class _HomePageState extends State<HomePage> {
             onChanged: (value) => checkBoxTick(value, index),
             taskComplete: toDOList[index][1],
             taskName: toDOList[index][0],
+            deleteFunction: (context) => deleteTask(index),
           );
         },
       ),
