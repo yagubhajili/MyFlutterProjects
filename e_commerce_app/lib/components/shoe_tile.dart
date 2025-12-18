@@ -45,7 +45,7 @@ class ShoeTile extends StatelessWidget {
                     ),
 
                     //price
-                    Text('\$' + shoe.price),
+                    Text('\$${shoe.price}'),
                   ],
                 ),
 
