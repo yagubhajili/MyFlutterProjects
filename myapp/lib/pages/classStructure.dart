@@ -26,15 +26,30 @@ class Classstructure extends StatelessWidget {
                 SizedBox(height: 10),
                 Row(
                   children: [
-                    Container(width: 30, height: 30, color: Colors.red),
-                    Container(width: 30, height: 30, color: Colors.green),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.red,
+                      child: Text('O', textAlign: TextAlign.center),
+                    ),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.green,
+                      child: Text('A', textAlign: TextAlign.center),
+                    ),
                   ],
                 ),
                 SizedBox(height: 10),
 
                 Row(
                   children: [
-                    Container(width: 30, height: 30, color: Colors.red),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.red,
+                      child: Text('S', textAlign: TextAlign.center),
+                    ),
                     Container(width: 30, height: 30, color: Colors.green),
                   ],
                 ),
@@ -46,30 +61,65 @@ class Classstructure extends StatelessWidget {
                 Row(
                   children: [
                     Container(width: 30, height: 30, color: Colors.red),
-                    Container(width: 30, height: 30, color: Colors.green),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.green,
+                      child: Text('Y', textAlign: TextAlign.center),
+                    ),
                   ],
                 ),
                 SizedBox(height: 10),
                 Row(
                   children: [
-                    Container(width: 30, height: 30, color: Colors.red),
-                    Container(width: 30, height: 30, color: Colors.green),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.red,
+                      child: Text('F', textAlign: TextAlign.center),
+                    ),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.green,
+                      child: Text('Ö', textAlign: TextAlign.center),
+                    ),
                   ],
                 ),
                 SizedBox(height: 10),
 
                 Row(
                   children: [
-                    Container(width: 30, height: 30, color: Colors.red),
-                    Container(width: 30, height: 30, color: Colors.green),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.red,
+                      child: Text('G', textAlign: TextAlign.center),
+                    ),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.green,
+                      child: Text('N', textAlign: TextAlign.center),
+                    ),
                   ],
                 ),
                 SizedBox(height: 10),
 
                 Row(
                   children: [
-                    Container(width: 30, height: 30, color: Colors.red),
-                    Container(width: 30, height: 30, color: Colors.green),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.red,
+                      child: Text('E', textAlign: TextAlign.center),
+                    ),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.green,
+                      child: Text('E', textAlign: TextAlign.center),
+                    ),
                   ],
                 ),
               ],
@@ -87,7 +137,12 @@ class Classstructure extends StatelessWidget {
                 SizedBox(height: 10),
                 Row(
                   children: [
-                    Container(width: 30, height: 30, color: Colors.red),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.red,
+                      child: Text('M', textAlign: TextAlign.center),
+                    ),
                     Container(width: 30, height: 30, color: Colors.green),
                   ],
                 ),
@@ -95,7 +150,12 @@ class Classstructure extends StatelessWidget {
 
                 Row(
                   children: [
-                    Container(width: 30, height: 30, color: Colors.red),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.red,
+                      child: Text('E', textAlign: TextAlign.center),
+                    ),
                     Container(width: 30, height: 30, color: Colors.green),
                   ],
                 ),
@@ -103,16 +163,36 @@ class Classstructure extends StatelessWidget {
 
                 Row(
                   children: [
-                    Container(width: 30, height: 30, color: Colors.red),
-                    Container(width: 30, height: 30, color: Colors.green),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.red,
+                      child: Text('S', textAlign: TextAlign.center),
+                    ),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      color: Colors.green,
+                      child: Icon(Icons.circle, size: 10, color: Colors.black),
+                    ),
                   ],
                 ),
                 SizedBox(height: 10),
 
                 Row(
                   children: [
-                    Container(width: 30, height: 30, color: Colors.red),
-                    Container(width: 30, height: 30, color: Colors.green),
+                    Container(
+                      // alignment: Alignment.center,
+                      width: 60,
+                      height: 30,
+                      color: Colors.red,
+                      child: Icon(Icons.circle, size: 10, color: Colors.black),
+                      // child: Center(
+
+                      //   child: Text('.', style: TextStyle(fontSize: 10)),
+                      // ),
+                    ),
+                    // Container(width: 30, height: 30, color: Colors.green),
                   ],
                 ),
               ],
