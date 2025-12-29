@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/classStructure.dart';
 import 'package:myapp/pages/containerTask.dart';
+import 'package:myapp/pages/figmaProject.dart';
 import 'package:myapp/pages/flag.dart';
 import 'package:myapp/pages/testApp.dart';
 
@@ -13,6 +14,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Testapp();
+    return Figmaproject();
   }
 }
