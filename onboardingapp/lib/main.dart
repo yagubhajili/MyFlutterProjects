@@ -30,6 +30,7 @@ class _OnBoardingAppState extends State<OnBoardingApp> {
                 children: [
                   Expanded(
                     child: PageView(
+                      // physics: NeverScrollableScrollPhysics(),
                       controller: _pageController,
                       onPageChanged: (index) {
                         setState(() {
@@ -71,13 +72,26 @@ class _OnBoardingAppState extends State<OnBoardingApp> {
                           title: 'Your convenience in \n making a todo list',
                           description:
                               "Here's a mobile platform that helps you create task or to list so that it can help you in every job easier and faster.",
+                          onPressed: () {
+                            _pageController.nextPage(
+                              duration: Duration(milliseconds: 300),
+                              curve: Curves.easeIn,
+                            );
+                          },
                         ),
+
                         BoardingPages(
-                          image: 'ss',
+                          image: 'assets/pictures/onboardingImage2.png',
                           title:
                               'Find the practicality in making your todo list',
                           description:
                               'Easy-to-understand user interface that makes you more comfortable when you want to create a task or to do list, Todyapp can also improve productivity',
+                          onPressed: () {
+                            _pageController.nextPage(
+                              duration: Duration(milliseconds: 300),
+                              curve: Curves.easeIn,
+                            );
+                          },
                         ),
                         // Spacer(),
                         // SizedBox(height: 84),
@@ -124,10 +138,17 @@ class _OnBoardingAppState extends State<OnBoardingApp> {
 }
 
 class BoardingPages extends StatelessWidget {
+  final Function()? onPressed;
   final String? image;
   final String? title;
   final String? description;
-  const BoardingPages({super.key, this.image, this.title, this.description});
+  const BoardingPages({
+    super.key,
+    this.image,
+    this.title,
+    this.description,
+    this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -173,7 +194,7 @@ class BoardingPages extends StatelessWidget {
                     height: 56,
                     width: 327,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: onPressed,
                       style: ButtonStyle(
                         backgroundColor: WidgetStatePropertyAll(
                           Color(0xFF24A19C),
