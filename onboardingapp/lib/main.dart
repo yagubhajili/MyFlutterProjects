@@ -66,37 +66,19 @@ class _OnBoardingAppState extends State<OnBoardingApp> {
                             ),
                           ],
                         ),
-                        Column(
-                          // mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(right: 24),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                // crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    'skip',
-                                    style: TextStyle(
-                                      color: Color(0xFF24A19C),
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
+                        BoardingPages(
+                          image: 'assets/pictures/onboardingImage1.png',
+                          title: 'Your convenience in \n making a todo list',
+                          description:
+                              "Here's a mobile platform that helps you create task or to list so that it can help you in every job easier and faster.",
                         ),
-                        Container(
-                          color: Colors.white,
-                          child: Center(
-                            child: Text(
-                              'Third page',
-                              style: TextStyle(fontSize: 20),
-                            ),
-                          ),
+                        BoardingPages(
+                          image: 'ss',
+                          title:
+                              'Find the practicality in making your todo list',
+                          description:
+                              'Easy-to-understand user interface that makes you more comfortable when you want to create a task or to do list, Todyapp can also improve productivity',
                         ),
-
                         // Spacer(),
                         // SizedBox(height: 84),
                         // Expanded(child: SizedBox()),
@@ -137,6 +119,78 @@ class _OnBoardingAppState extends State<OnBoardingApp> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class BoardingPages extends StatelessWidget {
+  final String? image;
+  final String? title;
+  final String? description;
+  const BoardingPages({super.key, this.image, this.title, this.description});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                // crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    'Skip',
+                    style: TextStyle(color: Color(0xFF24A19C), fontSize: 16),
+                  ),
+                ],
+              ),
+              SizedBox(height: 24),
+              Column(
+                children: [
+                  Image.asset('$image', width: 375),
+                  Text(
+                    '$title',
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 0,
+                      // fontFamily: 'SF Pro Text',
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    '$description',
+                    style: TextStyle(color: Color(0xFF767E8C)),
+                  ),
+                  SizedBox(height: 100),
+                  SizedBox(
+                    height: 56,
+                    width: 327,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(
+                          Color(0xFF24A19C),
+                        ),
+                      ),
+                      child: Text(
+                        'Continue',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
