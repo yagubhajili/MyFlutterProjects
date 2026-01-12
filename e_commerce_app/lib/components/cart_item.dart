@@ -1,11 +1,11 @@
 import 'package:e_commerce_app/models/cart.dart';
-import 'package:e_commerce_app/models/shoe.dart';
+// import 'package:e_commerce_app/models/shoe.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CartItem extends StatefulWidget {
-  Shoe shoe;
-  CartItem({super.key, required this.shoe});
+  final shoe;
+  const CartItem({super.key, required this.shoe});
 
   @override
   State<CartItem> createState() => _CartItemState();
