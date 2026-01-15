@@ -5,6 +5,22 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text('Welcome to the Home Page!')));
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            children: [
+              Text('Welcome to the Home Page!'),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/loginpage');
+                },
+                child: Text('Go to Login Page'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

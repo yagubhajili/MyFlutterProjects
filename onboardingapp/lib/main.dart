@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onboardingapp/pages/HomePage.dart';
+import 'package:onboardingapp/pages/LoginPage.dart';
 import 'package:onboardingapp/pages/OnboardingPage.dart';
 
 void main() {
@@ -14,7 +15,10 @@ class OnBoardingApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Onboardingpage(),
-      routes: {'/homepage': (context) => Homepage()},
+      routes: {
+        '/homepage': (context) => Homepage(),
+        '/loginpage': (context) => LoginPage(),
+      },
     );
   }
 }
