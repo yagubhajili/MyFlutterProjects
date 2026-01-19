@@ -58,7 +58,7 @@ class LoginInputs extends StatelessWidget {
       decoration: InputDecoration(
         // labelText: 'Email',
         hint: Text(
-          '${hintText}',
+          '$hintText',
           style: TextStyle(color: Color.fromARGB(255, 113, 113, 119)),
         ),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
