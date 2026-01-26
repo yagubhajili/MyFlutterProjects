@@ -3,6 +3,7 @@ import 'package:onboardingapp/pages/HomePage.dart';
 import 'package:onboardingapp/pages/LoginPage.dart';
 import 'package:onboardingapp/pages/OnboardingPage.dart';
 import 'package:onboardingapp/pages/ProfilePage.dart';
+import 'package:onboardingapp/pages/editProfile.dart';
 
 void main() {
   runApp(OnBoardingApp());
@@ -20,6 +21,7 @@ class OnBoardingApp extends StatelessWidget {
         '/homepage': (context) => Homepage(),
         '/loginpage': (context) => LoginPage(),
         '/profilepage': (context) => Profilepage(),
+        '/editprofile': (context) => Editprofile(),
       },
     );
   }

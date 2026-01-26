@@ -55,10 +55,7 @@ class Homepage extends StatelessWidget {
                 SizedBox(height: 20),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Profilepage()),
-                    );
+                    Navigator.pushNamed(context, '/profilepage');
                   },
                   child: Row(
                     children: [

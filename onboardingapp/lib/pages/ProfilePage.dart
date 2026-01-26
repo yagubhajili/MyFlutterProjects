@@ -124,9 +124,14 @@ class Profilepage extends StatelessWidget {
                     icon: Icon(Icons.reviews, color: Colors.cyan),
                     text: "User Reviews",
                   ),
-                  ClickableInfo(
-                    icon: Icon(Icons.settings, color: Colors.blue),
-                    text: "Settings",
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/editprofile');
+                    },
+                    child: ClickableInfo(
+                      icon: Icon(Icons.settings, color: Colors.blue),
+                      text: "Settings",
+                    ),
                   ),
                 ],
               ),
