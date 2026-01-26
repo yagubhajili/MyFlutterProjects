@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:onboardingapp/pages/HomePage.dart';
 import 'package:onboardingapp/pages/LoginPage.dart';
 import 'package:onboardingapp/pages/OnboardingPage.dart';
+import 'package:onboardingapp/pages/ProfilePage.dart';
 
 void main() {
   runApp(OnBoardingApp());
@@ -18,6 +19,7 @@ class OnBoardingApp extends StatelessWidget {
       routes: {
         '/homepage': (context) => Homepage(),
         '/loginpage': (context) => LoginPage(),
+        '/profilepage': (context) => Profilepage(),
       },
     );
   }
