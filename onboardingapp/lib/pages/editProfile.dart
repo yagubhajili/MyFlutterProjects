@@ -31,6 +31,7 @@ class Editprofile extends StatelessWidget {
           SizedBox(height: 30),
 
           LabelAndInput(label: 'Bio', hintText: 'I Love Fast Food', maxLine: 5),
+          SizedBox(height: 30),
 
           SizedBox(
             height: 60,
