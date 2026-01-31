@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -11,12 +12,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
   int currentIndex = 0;
   PageController pngController = PageController();
   PageController textController = PageController();
-  // PageController controller = PageController();
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   controller = PageController();
-  // }
+  bool hasSeenOnboarding = false;
+
+  Future<void> completeOnboarding(BuildContext context) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('onboarding_completed', true);
+
+    Navigator.pushNamedAndRemoveUntil(context, '/homepage', (route) => false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 alignment: Alignment.centerLeft,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacementNamed(context, '/homepage');
+                    // Navigator.pushReplacementNamed(context, '/homepage');
+                    completeOnboarding(context);
                   },
                   child: Text(
                     'SKIP',
@@ -160,7 +164,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             curve: Curves.easeIn,
                           );
                         } else {
-                          Navigator.pushReplacementNamed(context, '/homepage');
+                          // Navigator.pushReplacementNamed(context, '/homepage');
+                          completeOnboarding(context);
                         }
                       },
                       child: Text(currentIndex == 2 ? "GET STARTED" : "NEXT"),

@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_app/home/homePage.dart';
 import 'package:todo_app/onboarding/onboarding_page.dart';
 import 'package:todo_app/splash/splash_page.dart';
 
-void main() {
-  runApp(ToDoApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+  final seenOnboarding = prefs.getBool('onboarding_completed') ?? false;
+
+  runApp(ToDoApp(seenOnboarding: seenOnboarding));
 }
 
 class ToDoApp extends StatelessWidget {
-  const ToDoApp({super.key});
+  final bool seenOnboarding;
+  const ToDoApp({super.key, required this.seenOnboarding});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +33,7 @@ class ToDoApp extends StatelessWidget {
          ThemeMode.dark for dark theme
       */
       debugShowCheckedModeBanner: false,
-      initialRoute: '/splash',
+      // initialRoute: seenOnboarding ? '/homepage' : '/onboarding',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
         '/splash': (context) => SplashPage(),
@@ -35,7 +41,7 @@ class ToDoApp extends StatelessWidget {
         '/onboarding': (context) => OnboardingPage(),
         '/homepage': (context) => Homepage(),
       },
-      home: SplashPage(),
+      home: seenOnboarding ? Homepage() : OnboardingPage(),
     );
   }
 }
