@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/home/homePage.dart';
 import 'package:todo_app/onboarding/onboarding_page.dart';
 import 'package:todo_app/splash/splash_page.dart';
 
@@ -32,6 +33,7 @@ class ToDoApp extends StatelessWidget {
         '/splash': (context) => SplashPage(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/onboarding': (context) => OnboardingPage(),
+        '/homepage': (context) => Homepage(),
       },
       home: SplashPage(),
     );
