@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todo_app/calendar/calendar.dart';
 import 'package:todo_app/home/homePage.dart';
 import 'package:todo_app/onboarding/onboarding_page.dart';
+import 'package:todo_app/profile/profile_page.dart';
 import 'package:todo_app/splash/splash_page.dart';
 
 void main() async {
@@ -40,6 +42,8 @@ class ToDoApp extends StatelessWidget {
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/onboarding': (context) => OnboardingPage(),
         '/homepage': (context) => Homepage(),
+        '/profilepage': (context) => ProfilePage(),
+        '/calendar': (context) => Calendar(),
       },
       home: seenOnboarding ? Homepage() : OnboardingPage(),
     );
