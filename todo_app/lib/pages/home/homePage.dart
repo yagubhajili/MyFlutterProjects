@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/profile/profile_page.dart';
+// import 'package:todo_app/profile/profile_page.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -14,9 +14,14 @@ class Homepage extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: CircleAvatar(
-              radius: 25,
-              backgroundImage: NetworkImage('https://picsum.photos/200/300'),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.popAndPushNamed(context, '/profile');
+              },
+              child: CircleAvatar(
+                radius: 25,
+                backgroundImage: AssetImage('assets/images/yagub.jpeg'),
+              ),
             ),
           ),
         ],
@@ -36,7 +41,37 @@ class Homepage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton.large(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (BuildContext context) {
+              return Padding(
+                padding: const EdgeInsets.all(25),
+                child: Center(
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Add Task',
+                          style: TextStyle(fontSize: 20),
+                          //  textAlign: TextAlign.start
+                        ),
+                      ),
+                      SizedBox(height: 14),
+                      TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          );
+        },
         shape: CircleBorder(),
 
         child: Icon(Icons.add),
@@ -50,7 +85,7 @@ class Homepage extends StatelessWidget {
             Navigator.pushNamed(context, '/calendar');
           }
           if (value == 2) {
-            Navigator.pushNamed(context, '/profilepage');
+            Navigator.pushNamed(context, '/loginpage');
           }
         },
         destinations: [

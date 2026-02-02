@@ -1,7 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_app/extensions/input_fields.dart';
+// import 'package:todo_app/register/register.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -77,18 +80,18 @@ class ProfilePage extends StatelessWidget {
                 // ),
                 // Google Login Button
                 SizedBox(
-                  width: double.infinity, // Makes button full width
+                  width: double.infinity,
                   height: 48,
                   child: OutlinedButton.icon(
                     onPressed: () {},
                     icon: Image.asset('assets/pngs/google.png', width: 24),
 
-                    label: const Text(
+                    label: Text(
                       "Login with Google",
                       style: TextStyle(color: Colors.white),
                     ),
                     style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: Color(0xFF8875FF)),
+                      side: BorderSide(color: Color(0xFF8875FF)),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4),
                       ),
@@ -108,16 +111,48 @@ class ProfilePage extends StatelessWidget {
                       color: Colors.white,
                       size: 24,
                     ),
-                    label: const Text(
+                    label: Text(
                       "Login with Apple",
                       style: TextStyle(color: Colors.white),
                     ),
                     style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: Color(0xFF8875FF)),
+                      side: BorderSide(color: Color(0xFF8875FF)),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
+                  ),
+                ),
+                // Spacer(flex: 1),
+                SizedBox(height: 30),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Don’t have an account?  ',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                            TextSpan(
+                              text: 'Register',
+                              style: TextStyle(color: Colors.white),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.popAndPushNamed(
+                                    context,
+                                    '/register',
+                                  );
+                                },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -125,41 +160,6 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class InputFields extends StatelessWidget {
-  final String? label;
-  final String? hintText;
-
-  const InputFields({super.key, this.label, this.hintText});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text("$label", style: TextStyle(fontSize: 16)),
-        ),
-        SizedBox(height: 8),
-        TextField(
-          decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xff979797), width: 2.0),
-              borderRadius: BorderRadius.circular(5.0),
-            ),
-
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xff979797), width: 2.0),
-              borderRadius: BorderRadius.circular(5.0),
-            ),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
-            hintText: hintText,
-          ),
-        ),
-      ],
     );
   }
 }

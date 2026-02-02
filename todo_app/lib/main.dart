@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:todo_app/calendar/calendar.dart';
-import 'package:todo_app/home/homePage.dart';
-import 'package:todo_app/onboarding/onboarding_page.dart';
-import 'package:todo_app/profile/profile_page.dart';
-import 'package:todo_app/splash/splash_page.dart';
+import 'package:todo_app/pages/calendar/calendar.dart';
+import 'package:todo_app/pages/home/homePage.dart';
+import 'package:todo_app/pages/onboarding/onboarding_page.dart';
+import 'package:todo_app/auth/login/login_page.dart';
+import 'package:todo_app/auth/register/register.dart';
+import 'package:todo_app/pages/profile/profile_page.dart';
+import 'package:todo_app/pages/splash/splash_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
   final seenOnboarding = prefs.getBool('onboarding_completed') ?? false;
+  // final seenOnboarding = false;
 
   runApp(ToDoApp(seenOnboarding: seenOnboarding));
 }
@@ -42,8 +45,10 @@ class ToDoApp extends StatelessWidget {
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/onboarding': (context) => OnboardingPage(),
         '/homepage': (context) => Homepage(),
-        '/profilepage': (context) => ProfilePage(),
+        '/loginpage': (context) => LoginPage(),
         '/calendar': (context) => Calendar(),
+        '/register': (context) => Register(),
+        '/profile': (context) => ProfilePage(),
       },
       home: seenOnboarding ? Homepage() : OnboardingPage(),
     );
