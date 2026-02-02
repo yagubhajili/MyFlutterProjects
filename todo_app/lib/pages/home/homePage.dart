@@ -62,8 +62,98 @@ class Homepage extends StatelessWidget {
                       SizedBox(height: 14),
                       TextField(
                         decoration: InputDecoration(
+                          // hintText: ,
                           border: OutlineInputBorder(),
                         ),
+                      ),
+                      SizedBox(height: 10),
+                      TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Description',
+                          border: InputBorder.none,
+                        ),
+                      ),
+                      SizedBox(height: 35),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            spacing: 32,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  showDatePicker(
+                                    context: context,
+                                    initialDate: DateTime.now(),
+                                    firstDate: DateTime(2000),
+                                    lastDate: DateTime(2100),
+                                  );
+                                },
+                                child: Icon(
+                                  Icons.access_time,
+                                  color: Colors.white.withValues(alpha: 0.87),
+                                ),
+                              ),
+                              Icon(
+                                Icons.category_rounded,
+                                color: Colors.white.withValues(alpha: 0.87),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return Dialog(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Text('Task priority'),
+                                              Expanded(
+                                                child: Divider(
+                                                  thickness: 1,
+                                                  color: Color(0xff979797),
+                                                ),
+                                              ),
+                                              // GridView.count(
+                                              //   crossAxisCount: 4,
+                                              //   children: [
+                                              // Icon(Icons.flag_outlined),
+                                              // Icon(Icons.flag_outlined),
+                                              // Icon(Icons.flag_outlined),
+                                              // Icon(Icons.flag_outlined),
+                                              // Icon(Icons.flag_outlined),
+                                              // Icon(Icons.flag_outlined),
+                                              // Icon(Icons.flag_outlined),
+                                              // Icon(Icons.flag_outlined),
+                                              // Icon(Icons.flag_outlined),
+                                              // Icon(Icons.flag_outlined),
+                                              //   ],
+                                              // ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Icon(
+                                  Icons.flag,
+                                  color: Colors.white.withValues(alpha: 0.87),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.send_rounded,
+                                color: Color(0xff8687E7),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ],
                   ),
