@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_app/pages/calendar/calendar.dart';
-import 'package:todo_app/pages/home/homePage.dart';
+import 'package:todo_app/pages/home/home_page.dart';
 import 'package:todo_app/pages/onboarding/onboarding_page.dart';
 import 'package:todo_app/auth/login/login_page.dart';
 import 'package:todo_app/auth/register/register.dart';

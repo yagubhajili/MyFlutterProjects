@@ -1,4 +1,3 @@
-import 'package:fetch_api/response.dart';
 
 class ResponseEntity {
   final List<ProductItem> products;
