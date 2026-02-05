@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todo_app/extensions/navgiation_indicator.dart';
+import 'package:todo_app/extensions/navigation_pngs.dart';
+import 'package:todo_app/extensions/navigation_texts.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -70,20 +73,20 @@ class _OnboardingPageState extends State<OnboardingPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  NavigationIndicator(
+                  NavigationIndicators(
                     color: currentIndex == 0
                         ? Color(0xffffffff)
                         : Color(0xffAFAFAF),
                   ),
                   SizedBox(width: 8),
-                  NavigationIndicator(
+                  NavigationIndicators(
                     color: currentIndex == 1
                         ? Color(0xffffffff)
                         : Color(0xffAFAFAF),
                   ),
                   SizedBox(width: 8),
 
-                  NavigationIndicator(
+                  NavigationIndicators(
                     color: currentIndex == 2
                         ? Color(0xffffffff)
                         : Color(0xffAFAFAF),
@@ -176,70 +179,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class NavigationTexts extends StatelessWidget {
-  final String? mainText;
-  final String? subText;
-
-  const NavigationTexts({super.key, this.mainText, this.subText});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          '$mainText',
-          style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
-        ),
-        SizedBox(height: 42),
-        Text(
-          '$subText',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.white.withValues(alpha: 0.87),
-            fontSize: 16,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class NavigationPngs extends StatelessWidget {
-  final String? png;
-  const NavigationPngs({super.key, this.png});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(
-          '$png',
-          // width: 213,
-          height: 278,
-        ),
-      ],
-    );
-  }
-}
-
-class NavigationIndicator extends StatelessWidget {
-  final Color color;
-  const NavigationIndicator({super.key, this.color = const Color(0xffAFAFAF)});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 4,
-      width: 27,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(56),
       ),
     );
   }

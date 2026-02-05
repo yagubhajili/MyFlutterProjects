@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/extensions/profile_navigations.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -6,7 +7,13 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(leading: Icon(Icons.back_hand)),
+      appBar: AppBar(
+        leading: BackButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/homepage');
+          },
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: SingleChildScrollView(
@@ -123,28 +130,6 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class ProfileNavigations extends StatelessWidget {
-  final Icon? leading;
-  final String? title;
-  const ProfileNavigations({super.key, this.leading, this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      contentPadding: EdgeInsets.all(0),
-      leading: leading,
-      title: Text(
-        '$title',
-        style: TextStyle(
-          fontSize: 16,
-          color: Colors.white.withValues(alpha: 0.87),
-        ),
-      ),
-      trailing: Icon(Icons.arrow_forward_ios_rounded),
     );
   }
 }
