@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:onboardingapp/extensions/BoardingPages.dart';
-import 'package:onboardingapp/extensions/OnboardingIndicator.dart';
+import 'package:onboardingapp/extensions/boarding_pages.dart';
+import 'package:onboardingapp/extensions/onboarding_indicator.dart';
 
 class Onboardingpage extends StatefulWidget {
   const Onboardingpage({super.key});

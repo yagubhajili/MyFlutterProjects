@@ -142,11 +142,11 @@ class Homepage extends StatelessWidget {
               Expanded(
                 child: ListView(
                   children: [
-                    Restaurant_names(),
-                    Restaurant_names(),
-                    Restaurant_names(),
-                    Restaurant_names(),
-                    Restaurant_names(),
+                    RestaurantNames(),
+                    RestaurantNames(),
+                    RestaurantNames(),
+                    RestaurantNames(),
+                    RestaurantNames(),
                   ],
                 ),
               ),
@@ -158,8 +158,8 @@ class Homepage extends StatelessWidget {
   }
 }
 
-class Restaurant_names extends StatelessWidget {
-  const Restaurant_names({super.key});
+class RestaurantNames extends StatelessWidget {
+  const RestaurantNames({super.key});
 
   @override
   Widget build(BuildContext context) {

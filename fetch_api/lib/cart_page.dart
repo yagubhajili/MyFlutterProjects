@@ -1,4 +1,4 @@
-import 'package:fetch_api/Response.dart';
+import 'package:fetch_api/response.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatefulWidget {

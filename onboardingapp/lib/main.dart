@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:onboardingapp/pages/HomePage.dart';
-import 'package:onboardingapp/pages/LoginPage.dart';
-import 'package:onboardingapp/pages/OnboardingPage.dart';
-import 'package:onboardingapp/pages/ProfilePage.dart';
-import 'package:onboardingapp/pages/editProfile.dart';
+import 'package:onboardingapp/pages/home_page.dart';
+import 'package:onboardingapp/pages/login_page.dart';
+import 'package:onboardingapp/pages/onboarding_page.dart';
+import 'package:onboardingapp/pages/profile_page.dart';
+import 'package:onboardingapp/pages/edit_profile.dart';
 
 void main() {
   runApp(OnBoardingApp());

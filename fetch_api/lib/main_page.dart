@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:fetch_api/Response.dart';
+import 'package:fetch_api/response.dart';
 import 'package:fetch_api/detail_page.dart';
 import 'package:flutter/material.dart';
 
