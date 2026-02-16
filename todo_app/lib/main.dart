@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_app/pages/calendar/calendar.dart';
 import 'package:todo_app/pages/home/home_page.dart';
@@ -7,6 +8,7 @@ import 'package:todo_app/auth/login/login_page.dart';
 import 'package:todo_app/auth/register/register.dart';
 import 'package:todo_app/pages/profile/profile_page.dart';
 import 'package:todo_app/pages/splash/splash_page.dart';
+import 'package:todo_app/providers/todo_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,34 +25,39 @@ class ToDoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        brightness: Brightness.light,
-        /* light theme settings */
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<TodoProvider>(create: (_) => TodoProvider()),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(
+          brightness: Brightness.light,
+          /* light theme settings */
+        ),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          /* dark theme settings */
+        ),
+        themeMode: ThemeMode.dark,
+        /* ThemeMode.system to follow system theme, 
+           ThemeMode.light for light theme, 
+           ThemeMode.dark for dark theme
+        */
+        debugShowCheckedModeBanner: false,
+        // initialRoute: seenOnboarding ? '/homepage' : '/onboarding',
+        routes: {
+          // When navigating to the "/" route, build the FirstScreen widget.
+          '/splash': (context) => SplashPage(),
+          // When navigating to the "/second" route, build the SecondScreen widget.
+          '/onboarding': (context) => OnboardingPage(),
+          '/homepage': (context) => Homepage(),
+          '/loginpage': (context) => LoginPage(),
+          '/calendar': (context) => Calendar(),
+          '/register': (context) => Register(),
+          '/profile': (context) => ProfilePage(),
+        },
+        home: seenOnboarding ? Homepage() : OnboardingPage(),
       ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        /* dark theme settings */
-      ),
-      themeMode: ThemeMode.dark,
-      /* ThemeMode.system to follow system theme, 
-         ThemeMode.light for light theme, 
-         ThemeMode.dark for dark theme
-      */
-      debugShowCheckedModeBanner: false,
-      // initialRoute: seenOnboarding ? '/homepage' : '/onboarding',
-      routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        '/splash': (context) => SplashPage(),
-        // When navigating to the "/second" route, build the SecondScreen widget.
-        '/onboarding': (context) => OnboardingPage(),
-        '/homepage': (context) => Homepage(),
-        '/loginpage': (context) => LoginPage(),
-        '/calendar': (context) => Calendar(),
-        '/register': (context) => Register(),
-        '/profile': (context) => ProfilePage(),
-      },
-      home: seenOnboarding ? Homepage() : OnboardingPage(),
     );
   }
 }
