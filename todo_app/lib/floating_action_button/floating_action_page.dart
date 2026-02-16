@@ -99,10 +99,20 @@ class _FloatingActionPageState extends State<FloatingActionPage> {
                         children: [
                           GestureDetector(
                             onTap: () {
+                              final now = DateTime.now();
+                              String hour = now.hour.toString(); 
+                              String minute = now.minute.toString();
+                              String day = now.day.toString();
+                              String month = now.month.toString();
+                              final currentTime = "$month-$day $hour:$minute";
+
                               Provider.of<TodoProvider>(
                                 context,
                                 listen: false,
-                              ).addTask(titleController.text);
+                              ).addTask(
+                                titleController.text,
+                                currentTime.toString(),
+                              );
                               titleController.clear();
                               // log(context)
                             },

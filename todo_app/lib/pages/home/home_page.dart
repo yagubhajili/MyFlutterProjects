@@ -96,7 +96,7 @@ class _HomepageState extends State<Homepage> {
                                   Row(
                                     children: [
                                       Text(
-                                        'Today At 16:45',
+                                        task.date,
                                         style: TextStyle(
                                           fontSize: 14,
                                           color: Color(0xffAFAFAF),
