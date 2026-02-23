@@ -1,0 +1,14 @@
+{
+  "homePage": "Ana Sehife",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "homePageTextMiddle": "Bugun ne etmek isteyirsen?",
+  "@homePageTextMiddle": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "homePageSubTextMiddle": "+ a bas ve task elave et",
+  "@homePageSubTextMiddle": {
+    "description": "The conventional newborn programmer greeting"
+  }
+}

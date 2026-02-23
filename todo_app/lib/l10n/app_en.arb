@@ -1,0 +1,14 @@
+{
+  "homePage": "Home Page",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "homePageTextMiddle": "What do you want to do today?",
+  "@homePageTextMiddle": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "homePageSubTextMiddle": "Tap + to add your tasks",
+  "@homePageSubTextMiddle": {
+    "description": "The conventional newborn programmer greeting"
+  }
+}

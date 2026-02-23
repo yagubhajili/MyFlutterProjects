@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // import 'package:todo_app/extensions/task_priority_flags.dart';
 import 'package:todo_app/floating_action_button/floating_action_page.dart';
+import 'package:todo_app/l10n/app_localizations.dart';
 import 'package:todo_app/providers/todo_provider.dart';
 // import 'package:todo_app/profile/profile_page.dart';
 
@@ -17,9 +18,10 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
+    final locals = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text('INDEX'),
+        title: Text(locals.homePage),
         centerTitle: true,
         // leading: Icon(Icons.filter_list),
         actions: [
@@ -59,12 +61,12 @@ class _HomepageState extends State<Homepage> {
                             ),
                           ),
                           Text(
-                            'What do you want to do today?',
+                            locals.homePageTextMiddle,
                             style: TextStyle(fontSize: 20),
                           ),
                           SizedBox(height: 10),
                           Text(
-                            'Tap + to add your tasks',
+                            locals.homePageSubTextMiddle,
                             style: TextStyle(fontSize: 18),
                           ),
                         ],

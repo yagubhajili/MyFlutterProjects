@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todo_app/l10n/app_localizations.dart';
 import 'package:todo_app/pages/calendar/calendar.dart';
 import 'package:todo_app/pages/home/home_page.dart';
 import 'package:todo_app/pages/onboarding/onboarding_page.dart';
@@ -30,6 +32,11 @@ class ToDoApp extends StatelessWidget {
         ChangeNotifierProvider<TodoProvider>(create: (_) => TodoProvider()),
       ],
       child: MaterialApp(
+        title: 'Localizations Sample App',
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        locale: Locale('az'), // Set the default locale to Azerbaijani
+
         theme: ThemeData(
           brightness: Brightness.light,
           /* light theme settings */
