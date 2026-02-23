@@ -115,6 +115,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tap + to add your tasks'**
   String get homePageSubTextMiddle;
+
+  /// No description provided for @profilePage.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profilePage;
+
+  /// No description provided for @calendarPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar'**
+  String get calendarPage;
+
+  /// No description provided for @taskLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Task Left'**
+  String get taskLeft;
+
+  /// No description provided for @taskDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Task done'**
+  String get taskDone;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @appSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'App Settings'**
+  String get appSettings;
+
+  /// No description provided for @account.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get account;
+
+  /// No description provided for @accountNameChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change account name'**
+  String get accountNameChange;
+
+  /// No description provided for @accountPasswordChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change account password'**
+  String get accountPasswordChange;
+
+  /// No description provided for @accountImageChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change account Image'**
+  String get accountImageChange;
+
+  /// No description provided for @upToDo.
+  ///
+  /// In en, this message translates to:
+  /// **'Uptodo'**
+  String get upToDo;
+
+  /// No description provided for @aboutUs.
+  ///
+  /// In en, this message translates to:
+  /// **'About US'**
+  String get aboutUs;
+
+  /// No description provided for @faq.
+  ///
+  /// In en, this message translates to:
+  /// **'FAQ'**
+  String get faq;
+
+  /// No description provided for @helpFeedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Help & Feedback'**
+  String get helpFeedback;
+
+  /// No description provided for @supportUs.
+  ///
+  /// In en, this message translates to:
+  /// **'Support US'**
+  String get supportUs;
+
+  /// No description provided for @logOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Log Out'**
+  String get logOut;
 }
 
 class _AppLocalizationsDelegate

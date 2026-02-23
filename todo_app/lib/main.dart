@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+// import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todo_app/appSettings/app_settings.dart';
 import 'package:todo_app/l10n/app_localizations.dart';
 import 'package:todo_app/pages/calendar/calendar.dart';
 import 'package:todo_app/pages/home/home_page.dart';
@@ -62,6 +63,7 @@ class ToDoApp extends StatelessWidget {
           '/calendar': (context) => Calendar(),
           '/register': (context) => Register(),
           '/profile': (context) => ProfilePage(),
+          '/appsettings': (context) => AppSettings(),
         },
         home: seenOnboarding ? Homepage() : OnboardingPage(),
       ),

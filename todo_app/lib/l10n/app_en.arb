@@ -10,5 +10,38 @@
   "homePageSubTextMiddle": "Tap + to add your tasks",
   "@homePageSubTextMiddle": {
     "description": "The conventional newborn programmer greeting"
+  },
+  
+    "profilePage": "Profile",
+    
+    "calendarPage": "Calendar",
+    
+    "taskLeft": "Task Left",
+    
+    "taskDone": "Task done",
+    
+    "settings": "Settings",
+    
+    "appSettings": "App Settings",
+    
+    "account": "Account",
+    
+    "accountNameChange": "Change account name",
+    
+    "accountPasswordChange": "Change account password",
+    
+    "accountImageChange": "Change account Image",
+    
+    "upToDo": "Uptodo",
+    
+    "aboutUs": "About US",
+    
+    "faq": "FAQ",
+    
+    "helpFeedback": "Help & Feedback",
+    
+    "supportUs": "Support US",
+    
+    "logOut": "Log Out"
+
   }
-}

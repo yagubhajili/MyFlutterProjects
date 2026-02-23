@@ -174,12 +174,15 @@ class _HomepageState extends State<Homepage> {
           }
         },
         destinations: [
-          NavigationDestination(icon: Icon(Icons.home), label: 'Index'),
+          NavigationDestination(icon: Icon(Icons.home), label: locals.homePage),
           NavigationDestination(
             icon: Icon(Icons.calendar_month),
-            label: 'Calendar',
+            label: locals.calendarPage,
           ),
-          NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+          NavigationDestination(
+            icon: Icon(Icons.person),
+            label: locals.profilePage,
+          ),
         ],
       ),
     );

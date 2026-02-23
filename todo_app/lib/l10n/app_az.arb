@@ -10,5 +10,37 @@
   "homePageSubTextMiddle": "+ a bas ve task elave et",
   "@homePageSubTextMiddle": {
     "description": "The conventional newborn programmer greeting"
-  }
+  },
+  
+    "profilePage": "Profil",
+    
+    "calendarPage": "Kalendar",
+
+    "taskLeft": "Task qalib",
+    
+    "taskDone": "Task tamamlanib",
+    
+    "settings": "Ayarlar",
+    
+    "appSettings": "App ayarlari",
+    
+    "account": "Hesab",
+    
+    "accountNameChange": "Hesab adini deyis",
+    
+    "accountPasswordChange": "Hesab parolunu deyis",
+    
+    "accountImageChange": "Hesab Fotosonu deyis",
+    
+    "upToDo": "Uptodo",
+    
+    "aboutUs": "Haqqimizda",
+    
+    "faq": "FAQ",
+    
+    "helpFeedback": "Komek & Feedback",
+    
+    "supportUs": "Destek",
+    
+    "logOut": "Cixis"
 }

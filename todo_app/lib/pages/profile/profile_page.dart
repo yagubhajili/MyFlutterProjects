@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/extensions/profile_navigations.dart';
+import 'package:todo_app/l10n/app_localizations.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final locals = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
@@ -21,7 +24,7 @@ class ProfilePage extends StatelessWidget {
             child: Center(
               child: Column(
                 children: [
-                  Text('Profile', style: TextStyle(fontSize: 20)),
+                  Text(locals.profilePage, style: TextStyle(fontSize: 20)),
                   SizedBox(height: 24),
                   CircleAvatar(
                     radius: 35,
@@ -41,7 +44,7 @@ class ProfilePage extends StatelessWidget {
                           color: Color(0xff363636),
                           borderRadius: BorderRadius.circular(4),
                         ),
-                        child: Text('10 Task left'),
+                        child: Text('${locals.taskLeft} 10'),
                       ),
                       // SizedBox(width: 20),
                       Container(
@@ -52,7 +55,7 @@ class ProfilePage extends StatelessWidget {
                           color: Color(0xff363636),
                           borderRadius: BorderRadius.circular(4),
                         ),
-                        child: Text('5 Task done'),
+                        child: Text('${locals.taskDone} 5'),
                       ),
                     ],
                   ),
@@ -60,58 +63,63 @@ class ProfilePage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Settings',
+                      locals.settings,
                       style: TextStyle(color: Color(0xffAFAFAF)),
                     ),
                   ),
-                  ProfileNavigations(
-                    leading: Icon(Icons.settings),
-                    title: 'App Settings',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/appsettings');
+                    },
+                    child: ProfileNavigations(
+                      leading: Icon(Icons.settings),
+                      title: locals.appSettings,
+                    ),
                   ),
                   SizedBox(height: 10),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Account',
+                      locals.account,
                       style: TextStyle(color: Color(0xffAFAFAF)),
                     ),
                   ),
                   ProfileNavigations(
                     leading: Icon(Icons.person_outline_outlined),
-                    title: 'Change account name',
+                    title: locals.accountNameChange,
                   ),
                   ProfileNavigations(
                     leading: Icon(Icons.key_sharp),
-                    title: 'Change account password',
+                    title: locals.accountPasswordChange,
                   ),
                   ProfileNavigations(
                     leading: Icon(Icons.camera_alt_outlined),
-                    title: 'Change account Image',
+                    title: locals.accountImageChange,
                   ),
                   SizedBox(height: 10),
 
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Uptodo',
+                      locals.upToDo,
                       style: TextStyle(color: Color(0xffAFAFAF)),
                     ),
                   ),
                   ProfileNavigations(
                     leading: Icon(Icons.widgets_outlined),
-                    title: 'About US',
+                    title: locals.aboutUs,
                   ),
                   ProfileNavigations(
                     leading: Icon(Icons.error_outline_rounded),
-                    title: 'FAQ',
+                    title: locals.faq,
                   ),
                   ProfileNavigations(
                     leading: Icon(Icons.bolt),
-                    title: 'Help & Feedback',
+                    title: locals.helpFeedback,
                   ),
                   ProfileNavigations(
                     leading: Icon(Icons.thumb_up_alt_outlined),
-                    title: 'Support US',
+                    title: locals.supportUs,
                   ),
                   SizedBox(height: 10),
                   Row(
@@ -119,7 +127,7 @@ class ProfilePage extends StatelessWidget {
                       Icon(Icons.logout, color: Colors.red),
                       SizedBox(width: 15),
                       Text(
-                        'Log out',
+                        locals.logOut,
                         style: TextStyle(color: Colors.red, fontSize: 16),
                       ),
                     ],

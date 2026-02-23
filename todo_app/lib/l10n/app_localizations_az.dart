@@ -16,4 +16,52 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get homePageSubTextMiddle => '+ a bas ve task elave et';
+
+  @override
+  String get profilePage => 'Profil';
+
+  @override
+  String get calendarPage => 'Kalendar';
+
+  @override
+  String get taskLeft => 'Task qalib';
+
+  @override
+  String get taskDone => 'Task tamamlanib';
+
+  @override
+  String get settings => 'Ayarlar';
+
+  @override
+  String get appSettings => 'App ayarlari';
+
+  @override
+  String get account => 'Hesab';
+
+  @override
+  String get accountNameChange => 'Hesab adini deyis';
+
+  @override
+  String get accountPasswordChange => 'Hesab parolunu deyis';
+
+  @override
+  String get accountImageChange => 'Hesab Fotosonu deyis';
+
+  @override
+  String get upToDo => 'Uptodo';
+
+  @override
+  String get aboutUs => 'Haqqimizda';
+
+  @override
+  String get faq => 'FAQ';
+
+  @override
+  String get helpFeedback => 'Komek & Feedback';
+
+  @override
+  String get supportUs => 'Destek';
+
+  @override
+  String get logOut => 'Cixis';
 }
