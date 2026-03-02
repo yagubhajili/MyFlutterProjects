@@ -13,7 +13,8 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         leading: BackButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/homepage');
+            // Navigator.pushNamed(context, '/homepage');
+            Navigator.pop(context);
           },
         ),
       ),

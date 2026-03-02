@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 // import 'package:todo_app/extensions/task_priority_flags.dart';
 import 'package:todo_app/floating_action_page/floating_action_page.dart';
 import 'package:todo_app/l10n/app_localizations.dart';
+import 'package:todo_app/pages/profile/profile_page.dart';
 import 'package:todo_app/providers/todo_provider.dart';
 // import 'package:todo_app/profile/profile_page.dart';
 
@@ -29,7 +30,10 @@ class _HomepageState extends State<Homepage> {
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: GestureDetector(
               onTap: () {
-                Navigator.popAndPushNamed(context, '/profile');
+                // Navigator.popAndPushNamed(context, '/profile');
+                Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (context) => ProfilePage()));
               },
               child: CircleAvatar(
                 radius: 25,

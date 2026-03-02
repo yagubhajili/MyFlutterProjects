@@ -1,4 +1,4 @@
-import 'dart:developer';
+// import 'dart:developer';
 
 import 'package:flutter/material.dart';
 // import 'package:flutter_localizations/flutter_localizations.dart';
@@ -20,8 +20,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
   final seenOnboarding = prefs.getBool('onboarding_completed') ?? false;
-  final localLocale = prefs.getString('language') ?? 'az';
-  log(localLocale.toString());
+  // final localLocale = prefs.getString('language') ?? 'az';
+  // log(localLocale.toString());
   // final seenOnboarding = false;
 
   runApp(ToDoApp(seenOnboarding: seenOnboarding));

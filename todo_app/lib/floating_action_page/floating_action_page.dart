@@ -24,7 +24,7 @@ class _FloatingActionPageState extends State<FloatingActionPage> {
             padding: const EdgeInsets.all(25),
             child: Center(
               child: Column(
-                mainAxisSize: MainAxisSize.min,
+                // mainAxisSize: MainAxisSize.min,
                 // mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Align(
@@ -100,7 +100,7 @@ class _FloatingActionPageState extends State<FloatingActionPage> {
                           GestureDetector(
                             onTap: () {
                               final now = DateTime.now();
-                              String hour = now.hour.toString(); 
+                              String hour = now.hour.toString();
                               String minute = now.minute.toString();
                               String day = now.day.toString();
                               String month = now.month.toString();
