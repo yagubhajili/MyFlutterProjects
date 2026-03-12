@@ -1,4 +1,7 @@
+import 'package:bloc_training_app/app/app.dart';
+import 'package:bloc_training_app/features/counter/bloc/counter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(BlocTrainingApp());
@@ -11,7 +14,7 @@ class BlocTrainingApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(body: Center(child: Text('data'))),
+      home: BlocProvider(create: (context) => CounterBloc(), child: App()),
     );
   }
 }
