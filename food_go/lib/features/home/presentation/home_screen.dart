@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_go/core/constants/colors.dart';
+import 'package:food_go/features/home/presentation/cubits/cubit/burger_cubit.dart';
 import 'package:food_go/features/home/presentation/widgets/burger_card.dart';
 import 'package:food_go/features/home/presentation/widgets/burget_category.dart';
 
@@ -8,37 +10,25 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // START DIRECTLY WITH SCAFFOLD - NO PROVIDER HERE
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        elevation: 0,
         title: Padding(
           padding: const EdgeInsets.only(left: 20),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Image.asset(
-                  'assets/pngs/FoodgoLogo.png',
-                  height: 38,
-                  // width: 129,
-                  // fit: BoxFit.contain,
-                ),
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-
-                child: Text(
-                  'Order your favourite food!',
-                  style: TextStyle(fontSize: 18, color: AppColors.textGrey),
-
-                  // textAlign: TextAlign.left,
-                ),
+              Image.asset('assets/pngs/FoodgoLogo.png', height: 38),
+              Text(
+                'Order your favourite food!',
+                style: TextStyle(fontSize: 18, color: AppColors.textGrey),
               ),
             ],
           ),
         ),
-        actions: [
+        actions: const [
           Padding(
             padding: EdgeInsets.only(right: 20),
             child: CircleAvatar(child: Icon(Icons.person)),
@@ -50,6 +40,7 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              // Search Bar & Filter Button
               Row(
                 children: [
                   Expanded(
@@ -58,9 +49,9 @@ class HomeScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.05),
+                            color: Colors.black.withOpacity(0.05),
                             blurRadius: 10,
-                            offset: Offset(0, 5),
+                            offset: const Offset(0, 5),
                           ),
                         ],
                       ),
@@ -81,8 +72,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(width: 15),
-
+                  const SizedBox(width: 15),
                   Container(
                     height: 50,
                     width: 50,
@@ -90,11 +80,12 @@ class HomeScreen extends StatelessWidget {
                       color: AppColors.primaryRed,
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    child: Icon(Icons.tune, color: Colors.white),
+                    child: const Icon(Icons.tune, color: Colors.white),
                   ),
                 ],
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
+              // Categories
               SizedBox(
                 height: 50,
                 child: ListView(
@@ -102,33 +93,49 @@ class HomeScreen extends StatelessWidget {
                   children: [BurgerCategory()],
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
+              // Burger Grid (Controlled by Cubit)
               Padding(
-                padding: const EdgeInsets.only(left: 5, right: 5),
-                child: GridView(
-                  shrinkWrap: true, // Crucial inside a Column/ListView
-                  physics: NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, // <--- Exactly 2 columns
-                    mainAxisSpacing: 15, // Vertical gap
-                    crossAxisSpacing: 10, // Horizontal gap
-                    childAspectRatio:
-                        0.75, // Adjust this to make cards taller/shorter
-                  ),
-                  children: [
-                    BurgerCard(),
-                    BurgerCard(),
-                    BurgerCard(),
-                    BurgerCard(),
-                    BurgerCard(),
-
-                    BurgerCard(),
-                    BurgerCard(),
-
-                    BurgerCard(),
-                  ],
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: BlocBuilder<BurgerCubit, BurgerState>(
+                  builder: (context, state) {
+                    if (state is BurgerLoading) {
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          color: AppColors.primaryRed,
+                        ),
+                      );
+                    }
+                    if (state is BurgerError) {
+                      return Center(
+                        child: Text(
+                          state.message,
+                          style: const TextStyle(color: Colors.red),
+                        ),
+                      );
+                    }
+                    if (state is BurgerLoaded) {
+                      return GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: state.burgers.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 15,
+                              crossAxisSpacing: 10,
+                              childAspectRatio: 0.75,
+                            ),
+                        itemBuilder: (context, index) {
+                          return BurgerCard(burger: state.burgers[index]);
+                        },
+                      );
+                    }
+                    return const SizedBox.shrink();
+                  },
                 ),
               ),
+              const SizedBox(height: 100), // Bottom padding for FAB
             ],
           ),
         ),
@@ -136,12 +143,10 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: AppColors.primaryRed,
-        shape: CircleBorder(),
-        child: Icon(Icons.add, color: Colors.white, size: 30),
+        shape: const CircleBorder(),
+        child: const Icon(Icons.add, color: Colors.white, size: 30),
       ),
-
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
       bottomNavigationBar: BottomAppBar(
         color: AppColors.primaryRed,
         shape: const CircularNotchedRectangle(),
@@ -150,20 +155,20 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              icon: Icon(Icons.home, color: Colors.white),
+              icon: const Icon(Icons.home, color: Colors.white),
               onPressed: () {},
             ),
             IconButton(
-              icon: Icon(Icons.person_outline, color: Colors.white),
+              icon: const Icon(Icons.person_outline, color: Colors.white),
               onPressed: () {},
             ),
-            SizedBox(width: 40),
+            const SizedBox(width: 40),
             IconButton(
-              icon: Icon(Icons.notifications_none, color: Colors.white),
+              icon: const Icon(Icons.notifications_none, color: Colors.white),
               onPressed: () {},
             ),
             IconButton(
-              icon: Icon(Icons.favorite_border, color: Colors.white),
+              icon: const Icon(Icons.favorite_border, color: Colors.white),
               onPressed: () {},
             ),
           ],
