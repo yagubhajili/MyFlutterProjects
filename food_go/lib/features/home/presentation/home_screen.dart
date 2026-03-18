@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_go/core/constants/colors.dart';
-import 'package:food_go/features/home/presentation/cubits/cubit/burger_cubit.dart';
-import 'package:food_go/features/home/presentation/widgets/burger_card.dart';
+import 'package:food_go/features/home/presentation/cubits/cubit/food_cubit.dart';
+import 'package:food_go/features/home/presentation/cubits/cubit/food_state.dart';
+import 'package:food_go/features/home/presentation/widgets/food_card.dart';
 import 'package:food_go/features/home/presentation/widgets/burget_category.dart';
+import 'package:food_go/features/product_detail/food_detail_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,6 +13,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // START DIRECTLY WITH SCAFFOLD - NO PROVIDER HERE
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -49,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
+                            color: Colors.black.withValues(alpha: 0.05),
                             blurRadius: 10,
                             offset: const Offset(0, 5),
                           ),
@@ -90,23 +93,29 @@ class HomeScreen extends StatelessWidget {
                 height: 50,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: [BurgerCategory()],
+                  children: [
+                    BurgerCategory(categoryName: 'all'),
+                    BurgerCategory(categoryName: 'bbq'),
+                    BurgerCategory(categoryName: 'breads'),
+                    BurgerCategory(categoryName: 'burgers'),
+                  ],
                 ),
               ),
               const SizedBox(height: 40),
               // Burger Grid (Controlled by Cubit)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: BlocBuilder<BurgerCubit, BurgerState>(
+                child: BlocBuilder<FoodCubit, FoodState>(
                   builder: (context, state) {
-                    if (state is BurgerLoading) {
+                    if (state is FoodLoading) {
                       return const Center(
                         child: CircularProgressIndicator(
                           color: AppColors.primaryRed,
                         ),
                       );
                     }
-                    if (state is BurgerError) {
+
+                    if (state is FoodError) {
                       return Center(
                         child: Text(
                           state.message,
@@ -114,11 +123,15 @@ class HomeScreen extends StatelessWidget {
                         ),
                       );
                     }
-                    if (state is BurgerLoaded) {
+
+                    if (state is FoodLoaded) {
+                      // Use state.selectedCategory as defined in your Cubit
+                      final items = state.selectedCategory;
+
                       return GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        itemCount: state.burgers.length,
+                        itemCount: items.length,
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
@@ -127,7 +140,22 @@ class HomeScreen extends StatelessWidget {
                               childAspectRatio: 0.75,
                             ),
                         itemBuilder: (context, index) {
-                          return BurgerCard(burger: state.burgers[index]);
+                          final foodItem = items[index]; // Single Bbq object
+
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      FoodDetailPage(food: foodItem),
+                                ),
+                              );
+                            },
+                            child: FoodCard(
+                              food: foodItem,
+                            ), // Pass the Bbq item
+                          );
                         },
                       );
                     }

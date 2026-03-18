@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:food_go/core/constants/colors.dart';
-import 'package:food_go/features/home/data/model/burger_model.dart';
+import 'package:food_go/features/home/data/model/food_model.dart';
 // import '../../../core/constants/colors.dart';
 
-class BurgerCard extends StatelessWidget {
-  final BurgerModel burger;
-  const BurgerCard({super.key, required this.burger});
+class FoodCard extends StatelessWidget {
+  final Bbq food;
+  const FoodCard({super.key, required this.food});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class BurgerCard extends StatelessWidget {
                 Expanded(
                   child: Center(
                     child: Image.network(
-                      burger.img,
+                      food.img,
                       fit: BoxFit.contain,
                       // height: 150,
                       // scale: 0.2,
@@ -41,7 +41,7 @@ class BurgerCard extends StatelessWidget {
                 SizedBox(height: 8),
 
                 Text(
-                  burger.name,
+                  food.name,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
@@ -52,7 +52,7 @@ class BurgerCard extends StatelessWidget {
                 ),
 
                 Text(
-                  burger.dsc,
+                  food.dsc,
                   style: TextStyle(fontSize: 10, color: Colors.grey),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -65,7 +65,7 @@ class BurgerCard extends StatelessWidget {
                     Icon(Icons.star, color: Colors.amber, size: 14),
                     SizedBox(width: 4),
                     Text(
-                      burger.rate.toString(),
+                      food.rate.toString(),
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
