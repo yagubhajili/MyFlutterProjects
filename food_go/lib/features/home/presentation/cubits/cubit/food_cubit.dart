@@ -4,12 +4,11 @@ import 'package:food_go/features/home/data/repos/food_repository.dart';
 import 'package:food_go/features/home/presentation/cubits/cubit/food_state.dart';
 
 class FoodCubit extends Cubit<FoodState> {
-  final BurgerRepository repository;
+  final FoodRepository repository;
   FoodCubit(this.repository) : super(FoodInitial()) {
-    fetchAllMenu(); 
+    fetchAllMenu();
   }
 
-  
   void fetchAllMenu() async {
     emit(FoodLoading());
     try {
@@ -26,7 +25,6 @@ class FoodCubit extends Cubit<FoodState> {
       emit(FoodError(e.toString()));
     }
   }
-
 
   void changeCategory(String category) {
     if (state is FoodLoaded) {

@@ -7,7 +7,7 @@ import 'package:food_go/features/home/presentation/home_screen.dart';
 
 class FoodGoApp extends StatelessWidget {
   // 1. Keep the repository instance here
-  final burgerRepository = BurgerRepository();
+  final burgerRepository = FoodRepository();
 
   FoodGoApp({super.key});
 
@@ -17,7 +17,6 @@ class FoodGoApp extends StatelessWidget {
       value: burgerRepository,
       child: MultiBlocProvider(
         providers: [
-    
           BlocProvider(create: (context) => FoodCubit(burgerRepository)),
         ],
         child: MaterialApp(

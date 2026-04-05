@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:food_go/features/home/data/model/food_model.dart';
 
-class BurgerRepository {
+class FoodRepository {
   final Dio _dio = Dio();
 
   final String baseUrl = 'https://free-food-menus-api-two.vercel.app/';
