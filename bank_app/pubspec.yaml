@@ -43,6 +43,10 @@ dependencies:
 flutter_native_splash:
   color: "#ffffff" # The background color of your splash screen
   image: assets/images/Logo.png # Path to your logo
+  
+  android_12:
+    image: assets/images/Logo.png
+    color: "#ffffff"
 
 dev_dependencies:
   flutter_test:
