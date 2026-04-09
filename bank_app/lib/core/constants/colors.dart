@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
 
 class AppColors {
+  //Scaffold background color
+  static const Color scaffoldBackground = Color(0xFFFfffff);
   // Brand Colors
   static const Color primary = Color(0xFF2E5BFF);
 
