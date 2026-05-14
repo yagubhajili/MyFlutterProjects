@@ -5,21 +5,21 @@ Foodmodel foodmodelFromJson(String str) => Foodmodel.fromJson(json.decode(str));
 String foodmodelToJson(Foodmodel data) => json.encode(data.toJson());
 
 class Foodmodel {
-  List<Bbq> bbqs;
-  List<Bbq> bestFoods;
-  List<Bbq> breads;
-  List<Bbq> burgers;
-  List<Bbq> chocolates;
-  List<Bbq> desserts;
-  List<Bbq> drinks;
-  List<Bbq> friedChicken;
-  List<Bbq> iceCream;
-  List<Bbq> pizzas;
-  List<Bbq> porks;
-  List<Bbq> sandwiches;
-  List<Bbq> sausages;
-  List<Bbq> steaks;
-  List<Bbq> ourFoods;
+  List<Food> bbqs;
+  List<Food> bestFoods;
+  List<Food> breads;
+  List<Food> burgers;
+  List<Food> chocolates;
+  List<Food> desserts;
+  List<Food> drinks;
+  List<Food> friedChicken;
+  List<Food> iceCream;
+  List<Food> pizzas;
+  List<Food> porks;
+  List<Food> sandwiches;
+  List<Food> sausages;
+  List<Food> steaks;
+  List<Food> ourFoods;
   Map<String, int> pagination;
 
   Foodmodel({
@@ -42,23 +42,27 @@ class Foodmodel {
   });
 
   factory Foodmodel.fromJson(Map<String, dynamic> json) => Foodmodel(
-    bbqs: List<Bbq>.from(json["bbqs"].map((x) => Bbq.fromJson(x))),
-    bestFoods: List<Bbq>.from(json["best-foods"].map((x) => Bbq.fromJson(x))),
-    breads: List<Bbq>.from(json["breads"].map((x) => Bbq.fromJson(x))),
-    burgers: List<Bbq>.from(json["burgers"].map((x) => Bbq.fromJson(x))),
-    chocolates: List<Bbq>.from(json["chocolates"].map((x) => Bbq.fromJson(x))),
-    desserts: List<Bbq>.from(json["desserts"].map((x) => Bbq.fromJson(x))),
-    drinks: List<Bbq>.from(json["drinks"].map((x) => Bbq.fromJson(x))),
-    friedChicken: List<Bbq>.from(
-      json["fried-chicken"].map((x) => Bbq.fromJson(x)),
+    bbqs: List<Food>.from(json["bbqs"].map((x) => Food.fromJson(x))),
+    bestFoods: List<Food>.from(json["best-foods"].map((x) => Food.fromJson(x))),
+    breads: List<Food>.from(json["breads"].map((x) => Food.fromJson(x))),
+    burgers: List<Food>.from(json["burgers"].map((x) => Food.fromJson(x))),
+    chocolates: List<Food>.from(
+      json["chocolates"].map((x) => Food.fromJson(x)),
     ),
-    iceCream: List<Bbq>.from(json["ice-cream"].map((x) => Bbq.fromJson(x))),
-    pizzas: List<Bbq>.from(json["pizzas"].map((x) => Bbq.fromJson(x))),
-    porks: List<Bbq>.from(json["porks"].map((x) => Bbq.fromJson(x))),
-    sandwiches: List<Bbq>.from(json["sandwiches"].map((x) => Bbq.fromJson(x))),
-    sausages: List<Bbq>.from(json["sausages"].map((x) => Bbq.fromJson(x))),
-    steaks: List<Bbq>.from(json["steaks"].map((x) => Bbq.fromJson(x))),
-    ourFoods: List<Bbq>.from(json["our-foods"].map((x) => Bbq.fromJson(x))),
+    desserts: List<Food>.from(json["desserts"].map((x) => Food.fromJson(x))),
+    drinks: List<Food>.from(json["drinks"].map((x) => Food.fromJson(x))),
+    friedChicken: List<Food>.from(
+      json["fried-chicken"].map((x) => Food.fromJson(x)),
+    ),
+    iceCream: List<Food>.from(json["ice-cream"].map((x) => Food.fromJson(x))),
+    pizzas: List<Food>.from(json["pizzas"].map((x) => Food.fromJson(x))),
+    porks: List<Food>.from(json["porks"].map((x) => Food.fromJson(x))),
+    sandwiches: List<Food>.from(
+      json["sandwiches"].map((x) => Food.fromJson(x)),
+    ),
+    sausages: List<Food>.from(json["sausages"].map((x) => Food.fromJson(x))),
+    steaks: List<Food>.from(json["steaks"].map((x) => Food.fromJson(x))),
+    ourFoods: List<Food>.from(json["our-foods"].map((x) => Food.fromJson(x))),
     pagination: Map.from(
       json["pagination"],
     ).map((k, v) => MapEntry<String, int>(k, v)),
@@ -86,7 +90,7 @@ class Foodmodel {
   };
 }
 
-class Bbq {
+class Food {
   String id;
   String img;
   String name;
@@ -95,7 +99,7 @@ class Bbq {
   int rate;
   String country;
 
-  Bbq({
+  Food({
     required this.id,
     required this.img,
     required this.name,
@@ -105,7 +109,7 @@ class Bbq {
     required this.country,
   });
 
-  factory Bbq.fromJson(Map<String, dynamic> json) => Bbq(
+  factory Food.fromJson(Map<String, dynamic> json) => Food(
     id: json["id"],
     img: json["img"],
     name: json["name"],

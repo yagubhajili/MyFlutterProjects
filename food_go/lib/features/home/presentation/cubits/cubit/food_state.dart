@@ -8,7 +8,7 @@ class FoodLoading extends FoodState {}
 
 class FoodLoaded extends FoodState {
   final Foodmodel allData;
-  final List<Bbq> selectedCategory; 
+  final List<Food> selectedCategory; 
   final String activeCategoryName;
 
   FoodLoaded({

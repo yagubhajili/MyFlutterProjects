@@ -14,8 +14,8 @@ class OnboardingCubit extends Cubit<OnboardingState> {
   }
 
   void completeOnboarding() async {
-    emit(OnboardingComplete());
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('onboardingComplete', true);
+    emit(OnboardingComplete());
   }
 }

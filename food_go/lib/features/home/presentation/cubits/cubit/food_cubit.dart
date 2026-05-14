@@ -29,7 +29,7 @@ class FoodCubit extends Cubit<FoodState> {
   void changeCategory(String category) {
     if (state is FoodLoaded) {
       final currentState = state as FoodLoaded;
-      List<Bbq> newList;
+      List<Food> newList;
 
       switch (category) {
         case 'all':

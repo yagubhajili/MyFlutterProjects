@@ -149,7 +149,7 @@ class HomeScreen extends StatelessWidget {
                               childAspectRatio: 0.75,
                             ),
                         itemBuilder: (context, index) {
-                          final foodItem = items[index]; // Single Bbq object
+                          final foodItem = items[index]; // Single Food object
 
                           return GestureDetector(
                             onTap: () {
@@ -163,7 +163,7 @@ class HomeScreen extends StatelessWidget {
                             },
                             child: FoodCard(
                               food: foodItem,
-                            ), // Pass the Bbq item
+                            ), // Pass the Food item
                           );
                         },
                       );

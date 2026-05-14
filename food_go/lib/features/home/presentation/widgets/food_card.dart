@@ -4,7 +4,7 @@ import 'package:food_go/features/home/data/model/food_model.dart';
 // import '../../../core/constants/colors.dart';
 
 class FoodCard extends StatelessWidget {
-  final Bbq food;
+  final Food food;
   const FoodCard({super.key, required this.food});
 
   @override

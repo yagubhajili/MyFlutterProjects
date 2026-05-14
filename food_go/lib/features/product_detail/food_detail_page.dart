@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_go/features/home/data/model/food_model.dart';
 
 class FoodDetailPage extends StatelessWidget {
-  final Bbq food;
+  final Food food;
   const FoodDetailPage({super.key, required this.food});
 
   @override
